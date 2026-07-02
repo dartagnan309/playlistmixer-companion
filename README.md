@@ -14,8 +14,7 @@ Runs on **Windows 10/11 (x64)** and **macOS (Apple Silicon + Intel)**.
   [`PlaylistMixer-Companion-Setup.exe`](https://github.com/dartagnan309/playlistmixer-companion/releases/latest).
 - **macOS:** paste into Terminal —
   ```
-  curl -fsSL https://github.com/dartagnan309/playlistmixer-companion/releases/latest/download/install.sh \
-    | PLAYLISTMIXER_BASE_URL="https://github.com/dartagnan309/playlistmixer-companion/releases/latest/download" sh
+  curl -fsSL https://github.com/dartagnan309/playlistmixer-companion/releases/latest/download/install.sh | sh
   ```
 
 The Windows installer is currently unsigned; macOS binaries are ad-hoc codesigned with JIT
