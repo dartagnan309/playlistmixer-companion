@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Entitlements for ad-hoc signing the Companion service on macOS (applied by install.sh after the
+  tarball is unpacked). The service is a self-contained .NET app: it JITs a lot of code at startup
+  (ASP.NET + SignalR + MessagePack + DataProtection). On Apple Silicon, macOS enforces W^X and kills
+  a process that allocates executable memory unless it is signed (with the hardened runtime) and
+  carries these JIT entitlements. The binary ships unsigned from the Windows cross-build, and the
+  ad-hoc signature the kernel synthesises at exec carries NO entitlements — hence the SIGKILL. These
+  are the standard ".NET JIT on macOS" entitlements; ad-hoc (`-`) signing is sufficient, so no Apple
+  Developer ID or notarization is required.
+-->
+<plist version="1.0">
+<dict>
+    <key>com.apple.security.cs.allow-jit</key>
+    <true/>
+    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <true/>
+    <key>com.apple.security.cs.disable-executable-page-protection</key>
+    <true/>
+    <key>com.apple.security.cs.disable-library-validation</key>
+    <true/>
+    <key>com.apple.security.cs.allow-dyld-environment-variables</key>
+    <true/>
+</dict>
+</plist>

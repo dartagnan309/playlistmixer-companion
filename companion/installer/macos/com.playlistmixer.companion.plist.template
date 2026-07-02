@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  LaunchAgent for the PlaylistMixer Companion service. Installed per-user to
+  ~/Library/LaunchAgents/com.playlistmixer.companion.plist by install.sh, which substitutes the
+  @PREFIX@ / @FFMPEG@ placeholders. Runs in the user's GUI session (so it can `open` a player),
+  starts at login (RunAtLoad), and is kept alive / auto-restarted on crash (KeepAlive) — the macOS
+  equivalent of the Windows service's `sc ... start= auto` + failure/restart actions.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.playlistmixer.companion</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>@PREFIX@/PlaylistMixer.Companion.Service</string>
+    </array>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <!-- Point the service at the resolved ffmpeg (Homebrew's, or the bundled static binary). -->
+        <key>Ffmpeg__Path</key>
+        <string>@FFMPEG@</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>@PREFIX@/companion.log</string>
+    <key>StandardErrorPath</key>
+    <string>@PREFIX@/companion.log</string>
+</dict>
+</plist>

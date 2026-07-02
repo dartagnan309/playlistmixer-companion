@@ -1,0 +1,3 @@
+[submodule "PlaylistMixer.Playback"]
+	path = PlaylistMixer.Playback
+	url = https://github.com/dartagnan309/playlistmixer-playback.git

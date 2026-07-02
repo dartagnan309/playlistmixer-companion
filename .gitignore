@@ -1,0 +1,6 @@
+# .NET build output
+**/bin/
+**/obj/
+
+# Stray dev-download mirror the build scripts create (build.ps1 / build-mac.sh); CI-only, never shipped
+web/

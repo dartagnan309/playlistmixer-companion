@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>PlaylistMixer.Companion.Service</RootNamespace>
+    <AssemblyName>PlaylistMixer.Companion.Service</AssemblyName>
+    <!-- Single self-contained exe is produced at publish time by the installer build. -->
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="9.0.*" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.MessagePack" Version="9.0.*" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="9.0.*" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="9.0.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\PlaylistMixer.Playback\PlaylistMixer.Playback.csproj" />
+  </ItemGroup>
+
+</Project>

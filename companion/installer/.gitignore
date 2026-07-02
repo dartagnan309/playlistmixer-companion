@@ -1,0 +1,9 @@
+# Build artifacts and operator-supplied binaries — never committed. (output/ matches macos/output/ too.)
+stage/
+output/
+assets/ffmpeg.exe
+assets/ffmpeg-LICENSE.txt
+# macOS static ffmpeg binaries fetched by macos/fetch-ffmpeg.ps1 (large; reproducible from the script).
+macos/assets/ffmpeg-arm64
+macos/assets/ffmpeg-x64
+macos/assets/ffmpeg-LICENSE.txt

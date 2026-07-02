@@ -1,0 +1,28 @@
+name: build
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - run: dotnet build PlaylistMixer.Companion.sln -c Release
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      # Tray is net9.0-windows (WinForms) and cannot build here; verify the Service compiles cross-platform.
+      - run: dotnet build companion/PlaylistMixer.Companion.Service/PlaylistMixer.Companion.Service.csproj -c Release

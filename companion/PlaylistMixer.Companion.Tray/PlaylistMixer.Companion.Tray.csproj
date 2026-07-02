@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>PlaylistMixer.Companion.Tray</RootNamespace>
+    <AssemblyName>PlaylistMixer.Companion.Tray</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <!-- Exe icon = the web app logo (regenerate via companion/tools/make-brand-ico.ps1). -->
+    <ApplicationIcon>brand.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ServiceProcess.ServiceController" Version="9.0.*" />
+  </ItemGroup>
+
+</Project>
